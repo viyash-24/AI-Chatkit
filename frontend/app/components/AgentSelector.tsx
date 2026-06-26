@@ -16,3 +16,5 @@ const AgentSelector: React.FC<AgentSelectorProps> = ({ value, onChange }) => {
     />
   );
 };
+
+export default AgentSelector;
