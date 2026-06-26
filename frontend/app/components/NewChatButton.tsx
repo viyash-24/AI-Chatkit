@@ -20,3 +20,5 @@ const NewChatButton: React.FC<NewChatButtonProps> = ({ collapsed, onClick }) => 
     </Button>
   );
 };
+
+export default NewChatButton;
