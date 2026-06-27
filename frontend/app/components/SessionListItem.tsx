@@ -24,3 +24,13 @@ const SessionListItem: React.FC<SessionListItemProps> = ({ session, onDelete }) 
         }
         trigger={["click"]}
       >
+        <Button
+          icon={<EllipsisOutlined />}
+          shape="circle"
+          size="small"
+          style={{ flexShrink: 0, backgroundColor: "transparent", color: "#fff" }}
+        />
+      </Dropdown>
+    </div>
+  );
+};
