@@ -22,3 +22,5 @@ const SessionListItem: React.FC<SessionListItemProps> = ({ session, onDelete }) 
             </AntMenu.Item>
           </AntMenu>
         }
+        trigger={["click"]}
+      >
