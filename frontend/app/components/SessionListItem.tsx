@@ -6,3 +6,10 @@ interface SessionListItemProps {
   session: { threadId: string; name: string; lastUpdated: number };
   onDelete: (threadId: string) => void;
 }
+
+const SessionListItem: React.FC<SessionListItemProps> = ({ session, onDelete }) => {
+  return (
+    <div className="flex items-center gap-2 w-full min-w-0 flex-1 overflow-visible">
+      <span className="flex-1 overflow-hidden text-clip whitespace-nowrap min-w-0">
+        {session.name}
+      </span>
