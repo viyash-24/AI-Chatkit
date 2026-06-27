@@ -13,3 +13,12 @@ const SessionListItem: React.FC<SessionListItemProps> = ({ session, onDelete }) 
       <span className="flex-1 overflow-hidden text-clip whitespace-nowrap min-w-0">
         {session.name}
       </span>
+      <Dropdown
+        className="shrink-0 w-6 ml-2 flex-none"
+        overlay={
+          <AntMenu>
+            <AntMenu.Item key="delete" onClick={() => onDelete(session.threadId)}>
+              DELETE
+            </AntMenu.Item>
+          </AntMenu>
+        }
