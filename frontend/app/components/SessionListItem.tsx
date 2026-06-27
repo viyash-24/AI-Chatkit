@@ -34,3 +34,5 @@ const SessionListItem: React.FC<SessionListItemProps> = ({ session, onDelete }) 
     </div>
   );
 };
+
+export default SessionListItem;
