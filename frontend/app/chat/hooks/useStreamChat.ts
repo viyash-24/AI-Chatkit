@@ -53,3 +53,22 @@ export const useStreamChat = ({
         const { done, value } = await reader.read();
         if (done) break;
         const dataChunk = decoder.decode(value, { stream: true });
+
+        dataChunk.split("\n").forEach((line) => {
+          if (line.startsWith("data: ")) {
+            const data = JSON.parse(line.replace("data: ", ""));
+            switch (data.type) {
+              case "message":
+                handleMessageData(data.content);
+                break;
+              case "token":
+                handleTokenData(data.content);
+                break;
+              case "end":
+                setIsStreaming(false);
+                reader.cancel();
+                break;
+            }
+          }
+        });
+      }
