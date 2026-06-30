@@ -32,3 +32,11 @@ export const useStreamChat = ({
       content: "",
     };
     setMessages((prev: Message[]) => [...prev, newUserMessage, newAiMessage]);
+
+    try {
+      const requestMsg = {
+        thread_id: currentThreadId,
+        role: "user",
+        message: input,
+        agent_id: agentId,
+      };
