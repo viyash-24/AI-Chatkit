@@ -16,3 +16,8 @@ const useChatActions = ({ setMessages, setInput, isStreaming, setIsStreaming }: 
       setIsStreaming(false);
     }
   };
+
+  return { handleNewChat };
+};
+
+export default useChatActions;
