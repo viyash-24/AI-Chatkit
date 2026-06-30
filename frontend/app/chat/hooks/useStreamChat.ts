@@ -46,3 +46,5 @@ export const useStreamChat = ({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestMsg),
       });
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
