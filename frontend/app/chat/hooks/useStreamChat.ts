@@ -40,3 +40,9 @@ export const useStreamChat = ({
         message: input,
         agent_id: agentId,
       };
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/chat/stream`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestMsg),
+      });
