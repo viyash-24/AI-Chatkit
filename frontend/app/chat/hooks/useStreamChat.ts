@@ -26,3 +26,9 @@ export const useStreamChat = ({
       type: "user",
       content: input,
     };
+    const newAiMessage: Message = {
+      id: `ai_${Date.now()}`,
+      type: "ai",
+      content: "",
+    };
+    setMessages((prev: Message[]) => [...prev, newUserMessage, newAiMessage]);
