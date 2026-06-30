@@ -6,3 +6,5 @@ const useScrollToBottom = (messagesEndRef: React.RefObject<HTMLDivElement>, mess
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 };
+
+export default useScrollToBottom;
