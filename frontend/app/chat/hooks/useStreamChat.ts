@@ -48,3 +48,8 @@ export const useStreamChat = ({
       });
       const reader = response.body?.getReader();
       const decoder = new TextDecoder();
+
+      while (reader) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const dataChunk = decoder.decode(value, { stream: true });
