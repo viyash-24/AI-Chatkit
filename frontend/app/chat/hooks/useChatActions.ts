@@ -7,3 +7,12 @@ interface UseChatActionsProps {
   isStreaming: boolean;
   setIsStreaming: (value: boolean) => void;
 }
+
+const useChatActions = ({ setMessages, setInput, isStreaming, setIsStreaming }: UseChatActionsProps) => {
+  const handleNewChat = () => {
+    setMessages([]);
+    setInput("");
+    if (isStreaming) {
+      setIsStreaming(false);
+    }
+  };
