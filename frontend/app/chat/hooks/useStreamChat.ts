@@ -9,3 +9,14 @@ interface UseStreamChatProps {
   setIsStreaming: (value: boolean) => void;
 }
 
+
+export const useStreamChat = ({
+  currentThreadId,
+  agentId,
+  setMessages,
+  isStreaming,
+  setIsStreaming,
+}: UseStreamChatProps) => {
+  const handleStream = async (input: string) => {
+    if (!input.trim() || isStreaming) return;
+    setIsStreaming(true);
