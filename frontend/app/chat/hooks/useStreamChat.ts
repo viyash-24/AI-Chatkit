@@ -20,3 +20,9 @@ export const useStreamChat = ({
   const handleStream = async (input: string) => {
     if (!input.trim() || isStreaming) return;
     setIsStreaming(true);
+
+    const newUserMessage: Message = {
+      id: `user_${Date.now()}`,
+      type: "user",
+      content: input,
+    };
