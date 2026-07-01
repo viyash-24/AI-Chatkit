@@ -26,3 +26,11 @@ const SiderComponent: React.FC<SiderComponentProps> = ({
   onSelectSession
 }) => {
   const { currentThreadId, setCurrentThreadId } = useLayoutContext()
+
+  return (
+    <Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+      width={200}
+    >
