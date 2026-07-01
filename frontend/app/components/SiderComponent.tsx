@@ -15,3 +15,14 @@ interface SiderComponentProps {
 }
 
 const { Sider } = Layout;
+
+const SiderComponent: React.FC<SiderComponentProps> = ({ 
+  collapsed, 
+  onCollapse, 
+  sessions, 
+  handleDeleteSession, 
+  handlerNewChat, 
+  items,
+  onSelectSession
+}) => {
+  const { currentThreadId, setCurrentThreadId } = useLayoutContext()
