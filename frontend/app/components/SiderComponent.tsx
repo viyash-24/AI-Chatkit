@@ -55,3 +55,6 @@ const SiderComponent: React.FC<SiderComponentProps> = ({
       )}
     </Sider>
   );
+};
+
+export default SiderComponent;
