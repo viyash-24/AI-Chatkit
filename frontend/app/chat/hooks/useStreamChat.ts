@@ -108,4 +108,10 @@ export const useStreamChat = ({
         )
       }
       );
+    }else if (content.type === "ai" && content.content) {
+      setMessages((prev) =>
+        prev.map((msg, i) =>
+          i === prev.length - 1 ? { ...msg, content: content.content } : msg
+        )
+      );
     }
