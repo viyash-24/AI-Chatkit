@@ -13,3 +13,5 @@ interface SiderComponentProps {
   items: Array<{ key: string; label: React.ReactNode }>;
   onSelectSession: (key: string) => void;
 }
+
+const { Sider } = Layout;
