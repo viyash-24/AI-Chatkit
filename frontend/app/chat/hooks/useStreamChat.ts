@@ -72,3 +72,9 @@ export const useStreamChat = ({
           }
         });
       }
+    } catch (error) {
+      console.error(" Request Failed:", error);
+      message.error(" Request Failed, Please try again later.");
+      setIsStreaming(false);
+    }
+  };
