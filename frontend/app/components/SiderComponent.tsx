@@ -39,3 +39,5 @@ const SiderComponent: React.FC<SiderComponentProps> = ({
           AI-CHATKIT
         </div>
       )}
+      <NewChatButton collapsed={collapsed} onClick={handlerNewChat} />
+      
