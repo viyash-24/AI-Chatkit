@@ -34,3 +34,8 @@ const SiderComponent: React.FC<SiderComponentProps> = ({
       onCollapse={onCollapse}
       width={200}
     >
+      {!collapsed && (
+        <div className="logo flex items-center justify-center h-16 text-white text-lg">
+          AI-CHATKIT
+        </div>
+      )}
