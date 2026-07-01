@@ -98,3 +98,14 @@ export const useStreamChat = ({
             }
           });
         }
+        return prev.map((msg, i) =>
+          i === prev.length - 1
+            ? {
+                ...msg,
+                toolCall: { ...msg.toolCall, calls: [...(msg?.toolCall?.calls || []), ...addCalls] },
+              }
+            : msg
+        )
+      }
+      );
+    }
