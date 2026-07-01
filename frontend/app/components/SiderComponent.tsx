@@ -40,4 +40,18 @@ const SiderComponent: React.FC<SiderComponentProps> = ({
         </div>
       )}
       <NewChatButton collapsed={collapsed} onClick={handlerNewChat} />
-      
+      {!collapsed && (
+        <Menu
+          theme="dark"
+          className="max-h-[calc(100vh-180px)] overflow-y-auto"
+          defaultSelectedKeys={[currentThreadId]}
+          selectedKeys={[currentThreadId]}
+          mode="inline"
+          items={items}
+          onSelect={({ key }) => {
+            onSelectSession(key);
+          }}
+        />
+      )}
+    </Sider>
+  );
