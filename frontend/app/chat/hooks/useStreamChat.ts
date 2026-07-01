@@ -115,3 +115,21 @@ export const useStreamChat = ({
         )
       );
     }
+    if (content.type === "tool") {
+      setMessages((prev) => {
+        const updatedCalls = prev[prev.length - 1].toolCall.calls.map((call) =>
+          call.id === content.tool_call_id
+            ? { ...call, result: content.content }
+            : call
+        );
+        return prev.map((msg, i) =>
+          i === prev.length - 1
+            ? {
+                ...msg,
+                toolCall: { ...msg.toolCall, calls: [...updatedCalls] },
+              }
+            : msg
+        );
+      });
+    }
+  };
