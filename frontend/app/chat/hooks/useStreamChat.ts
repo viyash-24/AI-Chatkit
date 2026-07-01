@@ -141,3 +141,7 @@ export const useStreamChat = ({
       )
     );
   };
+
+
+  return { handleStream };
+};
