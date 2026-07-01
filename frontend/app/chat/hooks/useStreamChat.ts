@@ -133,3 +133,11 @@ export const useStreamChat = ({
       });
     }
   };
+
+  const handleTokenData = (token: string) => {
+    setMessages((prev) =>
+      prev.map((msg, i) =>
+        i === prev.length - 1 ? { ...msg, content: msg.content + token } : msg
+      )
+    );
+  };
