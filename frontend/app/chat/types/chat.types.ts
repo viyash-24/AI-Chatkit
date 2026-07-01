@@ -5,3 +5,8 @@ export interface Message {
   content: string;
   toolCall?: { calls: any[] };
 }
+
+// Chat component props
+export interface ChatComponentProps {
+  threadId: string;
+}
