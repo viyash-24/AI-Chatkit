@@ -78,3 +78,23 @@ export const useStreamChat = ({
       setIsStreaming(false);
     }
   };
+
+  const handleMessageData = (content: any) => {
+    if (content.type === "ai" && content.tool_calls.length > 0) {
+      setMessages((prev) =>{
+        var addCalls = []
+        const calls = prev[prev.length - 1].toolCall?.calls || []
+        const toolCalls = content.tool_calls;
+        if(calls.length === 0){
+          addCalls = toolCalls;
+        }else{
+          calls.map((call) => {
+            for (const toolCall of toolCalls) {
+              if (call.id != toolCall.id) {
+                if(addCalls.find((c) => c.id === toolCall.id) == null){
+                  addCalls.push(toolCall);
+                }
+              }
+            }
+          });
+        }
