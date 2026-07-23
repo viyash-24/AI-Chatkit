@@ -28,3 +28,15 @@ const MessageInput: React.FC<MessageInputProps> = ({ input, setInput, handleSend
           className="flex-1 min-h-[80px] p-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 transition-colors"
           autoSize={{ minRows: 3, maxRows: 5 }}
         />
+        <Button
+          type="primary"
+          className="bg-blue-500 hover:bg-blue-600 text-white h-24 px-6 rounded-lg transition-colors font-semibold shadow-md"
+          onClick={handleSend}
+          disabled={!input.trim() || isStreaming}
+        >
+          {isStreaming ? "generating..." : "send"}
+        </Button>
+      </div>
+    </div>
+  );
+};
