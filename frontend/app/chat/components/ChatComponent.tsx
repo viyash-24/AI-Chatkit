@@ -22,3 +22,9 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
     }
   });
   
+  console.log("chat agentId", agentId)
+  console.log("chat threadId", currentThreadId)
+  
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
