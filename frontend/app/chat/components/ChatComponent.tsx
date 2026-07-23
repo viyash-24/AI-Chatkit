@@ -75,3 +75,28 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
     }
     await handleStream(input);
   };
+
+  return (
+    <div className="h-full">
+      <div className="chat-messages overflow-y-auto p-4 h-[calc(100vh-280px)]">
+        {messages.length === 0 && (
+          <div className="flex flex-col justify-center items-center min-h-full text-gray-600 space-y-2">
+            <div className="text-2xl font-medium">Welcome to use the AI ChatKit</div>
+            <div className="text-base">
+            You can start typing your questions now and I'll be here to help you!            </div>
+          </div>
+        )}
+        {messages.map((msg) => (
+          <MessageBubble key={msg.id} message={msg} isStreaming={isStreaming} />
+        ))}
+        <div ref={messagesEndRef} />
+      </div>
+      <MessageInput
+        input={input}
+        setInput={setInput}
+        handleSend={handleSend}
+        isStreaming={isStreaming}
+      />
+    </div>
+  );
+};
