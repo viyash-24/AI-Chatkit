@@ -100,3 +100,5 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
     </div>
   );
 };
+
+export default ChatComponent;
