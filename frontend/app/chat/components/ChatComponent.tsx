@@ -28,3 +28,50 @@ const ChatComponent: React.FC<ChatComponentProps> = ({
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => scrollToBottom(), [messages]);
+
+  useEffect(() => {
+    if(messages.length > 0){
+      localStorage.setItem(
+        "chatMessages-" + currentThreadId,
+        JSON.stringify(messages)
+      );
+    } 
+  }, [messages]);
+
+
+  const { handleNewChat } = useChatActions({ setMessages, setInput, isStreaming, setIsStreaming });
+
+  useEffect(() => {
+    console.log("currentThreadId", currentThreadId);
+    if(!currentThreadId || currentThreadId === "") {
+      handleNewChat();
+      return;
+    }
+    const storedMessages = localStorage.getItem(
+      "chatMessages-" + currentThreadId
+    );
+    if (storedMessages) {
+      setMessages(JSON.parse(storedMessages));
+    } else {
+      setMessages([]);
+    }
+  }, [currentThreadId]);
+
+  const { handleStream } = useStreamChat({ currentThreadId, agentId, setMessages, isStreaming, setIsStreaming });
+
+  const handleSend = async () => {
+    setInput("");
+
+    setIsStreaming(true);
+    if (!currentThreadId) {
+      setCurrentThreadId(uuidv4());
+      window.dispatchEvent(
+        new CustomEvent("add-session", {
+          detail: { threadId: currentThreadId, msg: input },
+        })
+      );
+    }
+    await handleStream(input);
+  };
