@@ -38,3 +38,8 @@ async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
 SessionDep = Annotated[AsyncSession, Depends(get_async_session)]
 
 app = FastAPI()
+
+    
+@app.on_event("startup")
+async def on_startup():
+    await create_db_and_tables()
