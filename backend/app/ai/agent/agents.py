@@ -35,3 +35,9 @@ agents: dict[str, Agent] = {
 def get_agent(agent_id: str) -> CompiledStateGraph:
     """Get agent by agent_id"""
     return agents[agent_id].graph
+
+
+def get_all_agent_info() -> list[AgentInfo]:
+    return [
+        AgentInfo(key=agent_id, description=agent.description) for agent_id, agent in agents.items()
+    ]
