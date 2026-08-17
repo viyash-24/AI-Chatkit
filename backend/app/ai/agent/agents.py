@@ -19,3 +19,8 @@ class AgentInfo(BaseModel):
         description="Description of the agent.",
         examples=["A oa assistant for company"],
     )
+
+@dataclass
+class Agent:
+    description: str
+    graph: CompiledStateGraph
