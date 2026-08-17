@@ -9,3 +9,8 @@ class Hero(SQLModel, table=True):
     name: str = Field(index=True)
     age: int | None = Field(default=None, index=True)
     secret_name: str = Field()
+
+
+sqlite_file_name = "../../app/resource/database.db"
+sqlite_url = f"sqlite+aiosqlite:///{sqlite_file_name}"
+mysql_url = "mysql+aiomysql://root:root@localhost/ai-chatkit"
