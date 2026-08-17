@@ -24,3 +24,14 @@ class AgentInfo(BaseModel):
 class Agent:
     description: str
     graph: CompiledStateGraph
+
+
+agents: dict[str, Agent] = {
+    "oa-assistant": Agent(description="A oa intelligent assistant.", graph=oa_assistant),
+    "multi-agent-supervisor": Agent(description="A supervisor for multi-agent assistant.", graph=supervisor_agent),
+}
+
+## Get agent by agent_id
+def get_agent(agent_id: str) -> CompiledStateGraph:
+    """Get agent by agent_id"""
+    return agents[agent_id].graph
