@@ -14,3 +14,10 @@ class Hero(SQLModel, table=True):
 sqlite_file_name = "../../app/resource/database.db"
 sqlite_url = f"sqlite+aiosqlite:///{sqlite_file_name}"
 mysql_url = "mysql+aiomysql://root:root@localhost/ai-chatkit"
+
+# connect_args = {"check_same_thread": False}
+engine = create_async_engine(sqlite_url)
+
+async_session_maker = async_sessionmaker(
+    engine, expire_on_commit=False, class_=AsyncSession
+)
